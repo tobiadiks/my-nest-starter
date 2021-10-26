@@ -7,7 +7,6 @@ import { UserModule } from './user/user.module';
 import { ProfileModule } from './profile/profile.module';
 import { AuthModule } from './auth/auth.module';
 import { CompanyModule } from './company/company.module';
-import { ThirdpartykeyService } from './thirdpartykey/thirdpartykey.service';
 import { ThirdpartykeyModule } from './thirdpartykey/thirdpartykey.module';
 
 @Module({

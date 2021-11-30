@@ -31,6 +31,11 @@ export class PrivateKey {
   }
 
   @BeforeUpdate()
+  async hashGenerate() {
+    this.privatekey = await hash(Math.random().toString(), 10);
+  }
+
+  @BeforeUpdate()
   async updateDate() {
     this.generated = await new Date().toLocaleString();
   }

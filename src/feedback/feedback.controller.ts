@@ -10,7 +10,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { UserDto } from 'src/user/dto/user.dto';
+import { CompanyDto } from 'src/company/dto/company.dto';
 import { CreateFeedbackDto, FeedBackDto } from './dto/feedback.dto';
 import { Feedback } from './entity/feedback.entity';
 import { FeedbackService } from './feedback.service';
@@ -18,19 +18,27 @@ import { FeedbackService } from './feedback.service';
 @Controller('feedback')
 export class FeedbackController {
   constructor(private feedbackService: FeedbackService) {}
+
+  // @Get()
+  // all(): Promise<FeedBackDto[]> {
+  //   return this.feedbackService.all();
+  // }
+
   @Get()
-  all(): Promise<FeedBackDto[]> {
-    return this.feedbackService.all();
+  @UseGuards(AuthGuard())
+  allByCompany(
+    @Req()
+    req: any,
+  ): Promise<FeedBackDto[]> {
+    const user = <CompanyDto>req.user;
+    return this.feedbackService.allByCompany(user);
   }
 
   @Post()
-  @UseGuards(AuthGuard())
-  create(
-    @Body() data: CreateFeedbackDto,
-    @Req() req: any,
-  ): Promise<FeedBackDto> {
-    const user = <UserDto>req.user;
-    return this.feedbackService.create(user, data);
+  // @UseGuards(AuthGuard())
+  create(@Body() data: CreateFeedbackDto): Promise<FeedBackDto> {
+    // const user = <UserDto>req.user;
+    return this.feedbackService.create(data);
   }
 
   @Put(':id')

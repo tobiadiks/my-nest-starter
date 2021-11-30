@@ -36,8 +36,8 @@ export class User {
   @Column({ default: new Date().toLocaleString() })
   date_updated: string;
 
-  @OneToMany(() => Feedback, (feedback: Feedback) => feedback.author)
-  feedback: Feedback[];
+  // @OneToMany(() => Feedback, (feedback: Feedback) => feedback.author)
+  // feedback: Feedback[];
 
   @BeforeInsert() async hashPassword() {
     this.password = await hash(this.password, 10);

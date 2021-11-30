@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { JwtPayload } from 'src/helpers/jwt.payload';
 import { comparePassword } from 'src/helpers/password.compare';
 import { Repository } from 'typeorm';
 import {
@@ -53,5 +54,11 @@ export class CompanyService {
     }
 
     return toCompanyDto(companyExist);
+  }
+
+  async findByPayload({ email }: JwtPayload): Promise<CompanyDto> {
+    return await this.companyRepository.findOne({
+      where: { email },
+    });
   }
 }

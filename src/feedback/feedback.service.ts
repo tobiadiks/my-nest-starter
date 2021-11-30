@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { CompanyDto } from 'src/company/dto/company.dto';
 import { Company } from 'src/company/entity/company.entity';
-import { UserDto } from 'src/user/dto/user.dto';
 import { User } from 'src/user/entity/user.entity';
 import { Repository } from 'typeorm';
 import { CreateFeedbackDto, FeedBackDto } from './dto/feedback.dto';
@@ -18,19 +18,26 @@ export class FeedbackService {
     private readonly companyRepository: Repository<Company>,
   ) {}
 
-  async all(): Promise<FeedBackDto[]> {
-    return this.feedbackRepository.find();
-  }
+  // async all(): Promise<FeedBackDto[]> {
+  //   return this.feedbackRepository.find();
+  // }
 
-  async create(user: UserDto, data: CreateFeedbackDto): Promise<FeedBackDto> {
-    const getUser = await this.userRepository.findOne({
+  async allByCompany(user: CompanyDto): Promise<FeedBackDto[]> {
+    const getCompany = await this.companyRepository.findOne({
       where: { id: user.id },
     });
+
+    return this.feedbackRepository.find({ where: { company: getCompany } });
+  }
+
+  async create(data: CreateFeedbackDto): Promise<FeedBackDto> {
+    // const getUser = await this.userRepository.findOne({
+    //   where: { id: user.id },
+    // });
     const getCompany = await this.companyRepository.findOne({
       where: { id: data.company.id },
     });
     const feedback: CreateFeedbackDto = await this.feedbackRepository.create({
-      author: getUser,
       company: getCompany,
       ...data,
     });

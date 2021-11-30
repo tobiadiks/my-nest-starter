@@ -1,5 +1,4 @@
 import { Company } from 'src/company/entity/company.entity';
-import { User } from 'src/user/entity/user.entity';
 import {
   BeforeUpdate,
   Column,
@@ -28,6 +27,9 @@ export class Feedback {
   @Column({ default: false })
   processed: boolean;
 
+  @Column({ default: 'none' })
+  feedback_type: string;
+
   @Column({ default: 2 })
   sentiment: number;
 
@@ -40,8 +42,14 @@ export class Feedback {
   @Column({ default: new Date().toLocaleString() })
   date_updated: string;
 
-  @ManyToOne(() => User, (user: User) => user.feedback)
-  author: User;
+  @Column({ nullable: true })
+  first_name: string;
+
+  @Column({ nullable: true })
+  email: string;
+
+  // @ManyToOne(() => User, (user: User) => user.feedback)
+  // author: User;
 
   @BeforeUpdate() updateDate() {
     this.date_updated = new Date().toLocaleString();

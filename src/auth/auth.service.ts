@@ -63,6 +63,14 @@ export class AuthService {
   //End UserService
 
   //CompanyService
+  async validateCompany(payload: JwtPayload): Promise<CompanyDto> {
+    const company = await this.companyService.findByPayload(payload);
+    if (!company) {
+      throw new HttpException('Invalid token', HttpStatus.UNAUTHORIZED);
+    }
+    return toCompanyDto(company);
+  }
+
   async registerCompany(data: CreateCompanyDto): Promise<RegistrationStatus> {
     let status: RegistrationStatus = {
       success: true,

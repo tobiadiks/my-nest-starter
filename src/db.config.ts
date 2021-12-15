@@ -17,5 +17,6 @@ export function DbConfig(): TypeOrmModuleOptions {
     database: process.env.NODE_ENV == `production` ? `df0qjgqppjpga0` : 'fpp',
     synchronize: true,
     autoLoadEntities: true,
+    ssl: true,
   };
 }

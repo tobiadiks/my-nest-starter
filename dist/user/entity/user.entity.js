@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
-const feedback_entity_1 = require("../../feedback/entity/feedback.entity");
 const typeorm_1 = require("typeorm");
 const bcrypt_1 = require("bcrypt");
 let User = class User {

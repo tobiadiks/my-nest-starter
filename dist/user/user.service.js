@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const jwt_payload_1 = require("../helpers/jwt.payload");
 const password_compare_1 = require("../helpers/password.compare");
 const userdto_mapper_1 = require("./mapper/userdto.mapper");
 const typeorm_2 = require("typeorm");

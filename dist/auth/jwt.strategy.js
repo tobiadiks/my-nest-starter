@@ -13,10 +13,8 @@ exports.JwtStrategy = void 0;
 const common_1 = require("@nestjs/common");
 const passport_1 = require("@nestjs/passport");
 const passport_jwt_1 = require("passport-jwt");
-const jwt_payload_1 = require("../helpers/jwt.payload");
 const auth_service_1 = require("./auth.service");
 const company_mapper_1 = require("../company/mapper/company.mapper");
-const company_dto_1 = require("../company/dto/company.dto");
 let JwtStrategy = class JwtStrategy extends (0, passport_1.PassportStrategy)(passport_jwt_1.Strategy) {
     constructor(authService) {
         super({

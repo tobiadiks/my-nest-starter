@@ -37,4 +37,3 @@ lerna-debug.log*
 # env
 /*.env
 
-#"@nestjs/common": "^8.0.0",

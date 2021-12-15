@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FeedbackService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
-const company_dto_1 = require("../company/dto/company.dto");
 const company_entity_1 = require("../company/entity/company.entity");
 const user_entity_1 = require("../user/entity/user.entity");
 const typeorm_2 = require("typeorm");

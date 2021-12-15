@@ -12,13 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AuthService = void 0;
 const common_1 = require("@nestjs/common");
 const jwt_1 = require("@nestjs/jwt");
-const jwt_payload_1 = require("../helpers/jwt.payload");
-const jwt_status_1 = require("../helpers/jwt.status");
 const userdto_mapper_1 = require("../user/mapper/userdto.mapper");
-const user_dto_1 = require("../user/dto/user.dto");
 const user_service_1 = require("../user/user.service");
 const company_service_1 = require("../company/company.service");
-const company_dto_1 = require("../company/dto/company.dto");
 const company_mapper_1 = require("../company/mapper/company.mapper");
 let AuthService = class AuthService {
     constructor(userService, companyService, jwtService) {

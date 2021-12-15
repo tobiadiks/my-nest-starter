@@ -15,7 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.FeedbackController = void 0;
 const common_1 = require("@nestjs/common");
 const passport_1 = require("@nestjs/passport");
-const company_dto_1 = require("../company/dto/company.dto");
 const feedback_dto_1 = require("./dto/feedback.dto");
 const feedback_entity_1 = require("./entity/feedback.entity");
 const feedback_service_1 = require("./feedback.service");

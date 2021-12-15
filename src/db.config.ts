@@ -3,12 +3,14 @@ import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 export function DbConfig(): TypeOrmModuleOptions {
   return {
     type: 'postgres',
-    host: 'localhost',
+    host: process.env.host,
     port: 5432,
-    username: 'postgres',
-    password: '1234',
-    database: 'fpp',
+    username: process.env.username,
+    password: process.env.password,
+    database: process.env.database,
     synchronize: true,
     autoLoadEntities: true,
+    logging: false,
+    dropSchema: false,
   };
 }

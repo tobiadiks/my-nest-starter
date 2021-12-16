@@ -17,6 +17,7 @@ const profile_module_1 = require("./profile/profile.module");
 const auth_module_1 = require("./auth/auth.module");
 const company_module_1 = require("./company/company.module");
 const thirdpartykey_module_1 = require("./thirdpartykey/thirdpartykey.module");
+const sentiment_module_1 = require("./sentiment/sentiment.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -30,6 +31,7 @@ AppModule = __decorate([
             auth_module_1.AuthModule,
             company_module_1.CompanyModule,
             thirdpartykey_module_1.ThirdpartykeyModule,
+            sentiment_module_1.SentimentModule,
         ],
     })
 ], AppModule);

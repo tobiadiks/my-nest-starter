@@ -8,6 +8,7 @@ import { ProfileModule } from './profile/profile.module';
 import { AuthModule } from './auth/auth.module';
 import { CompanyModule } from './company/company.module';
 import { ThirdpartykeyModule } from './thirdpartykey/thirdpartykey.module';
+import { SentimentModule } from './sentiment/sentiment.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { ThirdpartykeyModule } from './thirdpartykey/thirdpartykey.module';
     AuthModule,
     CompanyModule,
     ThirdpartykeyModule,
+    SentimentModule,
   ],
 })
 export class AppModule {}

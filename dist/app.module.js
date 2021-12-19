@@ -11,13 +11,13 @@ const common_1 = require("@nestjs/common");
 const typeorm_1 = require("@nestjs/typeorm");
 const db_config_1 = require("./db.config");
 const feedback_module_1 = require("./feedback/feedback.module");
-const review_module_1 = require("./review/review.module");
 const user_module_1 = require("./user/user.module");
 const profile_module_1 = require("./profile/profile.module");
 const auth_module_1 = require("./auth/auth.module");
 const company_module_1 = require("./company/company.module");
 const thirdpartykey_module_1 = require("./thirdpartykey/thirdpartykey.module");
 const sentiment_module_1 = require("./sentiment/sentiment.module");
+const project_module_1 = require("./project/project.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -25,14 +25,16 @@ AppModule = __decorate([
         imports: [
             typeorm_1.TypeOrmModule.forRoot((0, db_config_1.DbConfig)()),
             feedback_module_1.FeedbackModule,
-            review_module_1.ReviewModule,
             user_module_1.UserModule,
             profile_module_1.ProfileModule,
             auth_module_1.AuthModule,
             company_module_1.CompanyModule,
             thirdpartykey_module_1.ThirdpartykeyModule,
             sentiment_module_1.SentimentModule,
+            project_module_1.ProjectModule,
         ],
+        providers: [],
+        controllers: [],
     })
 ], AppModule);
 exports.AppModule = AppModule;

@@ -15,7 +15,8 @@ let ProfileModule = class ProfileModule {
 ProfileModule = __decorate([
     (0, common_1.Module)({
         controllers: [profile_controller_1.ProfileController],
-        providers: [profile_service_1.ProfileService]
+        providers: [profile_service_1.ProfileService],
+        exports: [profile_service_1.ProfileService],
     })
 ], ProfileModule);
 exports.ProfileModule = ProfileModule;

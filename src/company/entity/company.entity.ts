@@ -1,5 +1,6 @@
 import { hash } from 'bcrypt';
 import { Feedback } from 'src/feedback/entity/feedback.entity';
+import { Project } from 'src/project/entity/project.entity';
 import { PrivateKey } from 'src/thirdpartykey/entity/thirdparty.entity';
 import {
   BeforeInsert,
@@ -39,6 +40,9 @@ export class Company {
 
   @OneToMany(() => Feedback, (feedback: Feedback) => feedback.company)
   feedback: Feedback[];
+
+  @OneToMany(() => Project, (project: Project) => project.company)
+  project: Project;
 
   @OneToOne(() => PrivateKey, (privatekey: PrivateKey) => privatekey.company)
   privatekey: PrivateKey;

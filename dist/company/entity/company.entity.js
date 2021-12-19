@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Company = void 0;
 const bcrypt_1 = require("bcrypt");
 const feedback_entity_1 = require("../../feedback/entity/feedback.entity");
+const project_entity_1 = require("../../project/entity/project.entity");
 const thirdparty_entity_1 = require("../../thirdpartykey/entity/thirdparty.entity");
 const typeorm_1 = require("typeorm");
 let Company = class Company {
@@ -58,6 +59,10 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => feedback_entity_1.Feedback, (feedback) => feedback.company),
     __metadata("design:type", Array)
 ], Company.prototype, "feedback", void 0);
+__decorate([
+    (0, typeorm_1.OneToMany)(() => project_entity_1.Project, (project) => project.company),
+    __metadata("design:type", project_entity_1.Project)
+], Company.prototype, "project", void 0);
 __decorate([
     (0, typeorm_1.OneToOne)(() => thirdparty_entity_1.PrivateKey, (privatekey) => privatekey.company),
     __metadata("design:type", thirdparty_entity_1.PrivateKey)

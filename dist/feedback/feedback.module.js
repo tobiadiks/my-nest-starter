@@ -29,7 +29,7 @@ FeedbackModule = __decorate([
         ],
         controllers: [feedback_controller_1.FeedbackController],
         providers: [feedback_service_1.FeedbackService],
-        exports: [typeorm_1.TypeOrmModule.forFeature([feedback_entity_1.Feedback])],
+        exports: [feedback_service_1.FeedbackService],
     })
 ], FeedbackModule);
 exports.FeedbackModule = FeedbackModule;

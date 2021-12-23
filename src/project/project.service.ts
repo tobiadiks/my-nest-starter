@@ -22,7 +22,7 @@ export class ProjectService {
       throw new HttpException('name field required', HttpStatus.BAD_REQUEST);
     }
     const getCompany = await this.companyRepository.findOne({
-      where: { id: company_id },
+      where: { company_id: company_id },
     });
 
     if (!getCompany) {
@@ -43,7 +43,7 @@ export class ProjectService {
 
   async GetAllProject(company_id: string): Promise<ProjectDto[]> {
     const getCompany = await this.companyRepository.findOne({
-      where: { id: company_id },
+      where: { company_id: company_id },
     });
 
     if (!getCompany) {
@@ -58,7 +58,7 @@ export class ProjectService {
 
   async DeleteOneProject(data: any): Promise<any> {
     const getCompany = await this.companyRepository.findOne({
-      where: { id: data.company_id },
+      where: { company_id: data.company_id },
     });
 
     if (!getCompany) {
@@ -81,7 +81,7 @@ export class ProjectService {
 
   async GetOneProject(data: any): Promise<any> {
     const getCompany = await this.companyRepository.findOne({
-      where: { id: data.company_id },
+      where: { company_id: data.company_id },
     });
 
     if (!getCompany) {
@@ -106,7 +106,7 @@ export class ProjectService {
       throw new HttpException('name field required', HttpStatus.BAD_REQUEST);
     }
     const getCompany = await this.companyRepository.findOne({
-      where: { id: data.company_id },
+      where: { company_id: data.company_id },
     });
 
     if (!getCompany) {

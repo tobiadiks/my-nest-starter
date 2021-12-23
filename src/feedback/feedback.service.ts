@@ -24,7 +24,7 @@ export class FeedbackService {
 
   async allByCompany(user: CompanyDto): Promise<FeedBackDto[]> {
     const getCompany = await this.companyRepository.findOne({
-      where: { id: user.company_id },
+      where: { company_id: user.company_id },
     });
 
     return this.feedbackRepository.find({ where: { company: getCompany } });
@@ -35,7 +35,7 @@ export class FeedbackService {
     //   where: { id: user.id },
     // });
     const getCompany = await this.companyRepository.findOne({
-      where: { id: data.company.company_id },
+      where: { company_id: data.company.company_id },
     });
     const feedback: CreateFeedbackDto = await this.feedbackRepository.create({
       company: getCompany,

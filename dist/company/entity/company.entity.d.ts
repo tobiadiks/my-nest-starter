@@ -2,7 +2,7 @@ import { Feedback } from 'src/feedback/entity/feedback.entity';
 import { Project } from 'src/project/entity/project.entity';
 import { PrivateKey } from 'src/thirdpartykey/entity/thirdparty.entity';
 export declare class Company {
-    id: string;
+    company_id: string;
     email: string;
     password: string;
     display_name: string;

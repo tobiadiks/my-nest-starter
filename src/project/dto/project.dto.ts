@@ -3,6 +3,7 @@ import { CompanyDto } from 'src/company/dto/company.dto';
 export class CreateProjectDto {
   name: string;
   description: string;
+  color: string;
 }
 
 export class ProjectDto {

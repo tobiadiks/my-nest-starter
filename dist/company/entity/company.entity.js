@@ -26,7 +26,7 @@ let Company = class Company {
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
     __metadata("design:type", String)
-], Company.prototype, "id", void 0);
+], Company.prototype, "company_id", void 0);
 __decorate([
     (0, typeorm_1.Column)({ nullable: false }),
     __metadata("design:type", String)

@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toCompanyDto = void 0;
 const toCompanyDto = (data) => {
-    const { id, email, display_name, logo_url, website, date_created, date_updated, } = data;
+    const { company_id, email, display_name, logo_url, website, date_created, date_updated, } = data;
     const companyDto = {
-        id,
+        company_id,
         email,
         display_name,
         logo_url,

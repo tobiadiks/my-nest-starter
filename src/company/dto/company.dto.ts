@@ -10,7 +10,7 @@ export class LoginCompanyDto {
 }
 
 export class CompanyDto {
-  id: string;
+  company_id: string;
   email: string;
   display_name: string;
   logo_url: string;

@@ -28,11 +28,13 @@ export class ProjectService {
     if (!getCompany) {
       throw new HttpException('not logged in', HttpStatus.UNAUTHORIZED);
     }
-    const project: Project = await this.projectRepository.create({
+    const project: Project = this.projectRepository.create({
       company: getCompany,
       ...body,
     });
+
     if (project) {
+      this.projectRepository.save(project);
       return { success: true };
     } else {
       throw new HttpException('cannot create', HttpStatus.FORBIDDEN);

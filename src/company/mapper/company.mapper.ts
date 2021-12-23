@@ -2,7 +2,7 @@ import { CompanyDto } from '../dto/company.dto';
 
 export const toCompanyDto = (data: CompanyDto): CompanyDto => {
   const {
-    id,
+    company_id,
     email,
     display_name,
     logo_url,
@@ -12,7 +12,7 @@ export const toCompanyDto = (data: CompanyDto): CompanyDto => {
   } = data;
 
   const companyDto: CompanyDto = {
-    id,
+    company_id,
     email,
     display_name,
     logo_url,

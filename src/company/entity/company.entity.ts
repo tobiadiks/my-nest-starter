@@ -15,7 +15,7 @@ import {
 @Entity()
 export class Company {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  company_id: string;
 
   @Column({ nullable: false })
   email: string;

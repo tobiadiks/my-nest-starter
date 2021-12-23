@@ -18,6 +18,9 @@ export class Project {
   @Column()
   description: string;
 
+  @Column()
+  color: string;
+
   @ManyToOne(() => Company, (company: Company) => company.project)
   company: Company;
 

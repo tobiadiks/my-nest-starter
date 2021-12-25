@@ -24,14 +24,10 @@ export class Project {
   @ManyToOne(() => Company, (company: Company) => company.project)
   company: Company;
 
-  @Column({ default: new Date().toLocaleString() })
+  @Column()
   date_created: string;
 
-  @Column({ default: new Date().toLocaleString() })
+  @Column()
   date_updated: string;
 
-  @BeforeUpdate()
-  updateDate() {
-    this.date_updated = new Date().toLocaleString();
-  }
 }

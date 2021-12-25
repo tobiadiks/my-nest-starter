@@ -4,6 +4,7 @@ export class CreateProjectDto {
   name: string;
   description: string;
   color: string;
+  date_created: string;
 }
 
 export class ProjectDto {

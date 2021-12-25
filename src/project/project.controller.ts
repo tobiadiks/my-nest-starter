@@ -9,7 +9,11 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { CreateProjectDto, ProjectDto } from './dto/project.dto';
+import {
+  CreateProjectDto,
+  ProjectDto,
+  UpdateProjectDto,
+} from './dto/project.dto';
 import { ProjectService } from './project.service';
 
 @Controller('/:company_id/project')
@@ -54,7 +58,7 @@ export class ProjectController {
 
   @Put('/:project_id')
   async UpdateProject(
-    @Body() body: CreateProjectDto,
+    @Body() body: UpdateProjectDto,
     @Param() data: any,
   ): Promise<ProjectDto> {
     const result: ProjectDto = await this.projectService.UpdateProject(

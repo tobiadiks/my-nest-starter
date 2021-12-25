@@ -7,6 +7,11 @@ export class CreateProjectDto {
   date_created: string;
 }
 
+export class UpdateProjectDto {
+  name: string;
+  description: string;
+}
+
 export class ProjectDto {
   company: CompanyDto;
   project_id: string;

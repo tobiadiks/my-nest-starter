@@ -2,7 +2,11 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Company } from 'src/company/entity/company.entity';
 import { Repository } from 'typeorm';
-import { CreateProjectDto, ProjectDto } from './dto/project.dto';
+import {
+  CreateProjectDto,
+  ProjectDto,
+  UpdateProjectDto,
+} from './dto/project.dto';
 import { Project } from './entity/project.entity';
 
 @Injectable()
@@ -101,7 +105,7 @@ export class ProjectService {
     return { success: true, project: findProject };
   }
 
-  async UpdateProject(body: CreateProjectDto, data: any): Promise<any> {
+  async UpdateProject(body: UpdateProjectDto, data: any): Promise<any> {
     if (!body.name) {
       throw new HttpException('name field required', HttpStatus.BAD_REQUEST);
     }

@@ -13,5 +13,5 @@ export class ProjectDto {
   name: string;
   description: string;
   date_created: string;
-  project: string;
+  color: string;
 }

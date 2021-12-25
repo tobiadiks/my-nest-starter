@@ -1,11 +1,5 @@
 import { Company } from 'src/company/entity/company.entity';
-import {
-  BeforeUpdate,
-  Column,
-  Entity,
-  ManyToOne,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Project {
@@ -26,8 +20,4 @@ export class Project {
 
   @Column()
   date_created: string;
-
-  @Column()
-  date_updated: string;
-
 }

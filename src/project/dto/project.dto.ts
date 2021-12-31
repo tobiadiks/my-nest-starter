@@ -4,6 +4,7 @@ export class CreateProjectDto {
   name: string;
   description: string;
   color: string;
+  type_id: string;
   date_created: string;
 }
 
@@ -17,6 +18,8 @@ export class ProjectDto {
   project_id: string;
   name: string;
   description: string;
+  type_id: string;
+  type_string: string;
   date_created: string;
   color: string;
 }

@@ -18,6 +18,8 @@ const company_module_1 = require("./company/company.module");
 const thirdpartykey_module_1 = require("./thirdpartykey/thirdpartykey.module");
 const sentiment_module_1 = require("./sentiment/sentiment.module");
 const project_module_1 = require("./project/project.module");
+const documentation_module_1 = require("./documentation/documentation.module");
+const dashboard_module_1 = require("./dashboard/dashboard.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -32,9 +34,9 @@ AppModule = __decorate([
             thirdpartykey_module_1.ThirdpartykeyModule,
             sentiment_module_1.SentimentModule,
             project_module_1.ProjectModule,
+            documentation_module_1.DocumentationModule,
+            dashboard_module_1.DashboardModule,
         ],
-        providers: [],
-        controllers: [],
     })
 ], AppModule);
 exports.AppModule = AppModule;

@@ -27,13 +27,13 @@ let FeedbackService = class FeedbackService {
     }
     async allByCompany(user) {
         const getCompany = await this.companyRepository.findOne({
-            where: { id: user.company_id },
+            where: { company_id: user.company_id },
         });
         return this.feedbackRepository.find({ where: { company: getCompany } });
     }
     async create(data) {
         const getCompany = await this.companyRepository.findOne({
-            where: { id: data.company.company_id },
+            where: { company_id: data.company.company_id },
         });
         const feedback = await this.feedbackRepository.create(Object.assign({ company: getCompany }, data));
         return this.feedbackRepository.save(feedback);

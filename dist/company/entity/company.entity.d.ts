@@ -1,3 +1,4 @@
+import { Documentation } from 'src/documentation/entity/documentation.entity';
 import { Feedback } from 'src/feedback/entity/feedback.entity';
 import { Project } from 'src/project/entity/project.entity';
 import { PrivateKey } from 'src/thirdpartykey/entity/thirdparty.entity';
@@ -12,6 +13,7 @@ export declare class Company {
     date_updated: string;
     feedback: Feedback[];
     project: Project;
+    documentation: Documentation;
     privatekey: PrivateKey;
     hashPassword(): Promise<void>;
     updateDate(): void;

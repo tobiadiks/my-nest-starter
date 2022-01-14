@@ -9,6 +9,8 @@ import { CompanyModule } from './company/company.module';
 import { ThirdpartykeyModule } from './thirdpartykey/thirdpartykey.module';
 import { SentimentModule } from './sentiment/sentiment.module';
 import { ProjectModule } from './project/project.module';
+import { DocumentationModule } from './documentation/documentation.module';
+import { DashboardModule } from './dashboard/dashboard.module';
 
 @Module({
   imports: [
@@ -21,8 +23,8 @@ import { ProjectModule } from './project/project.module';
     ThirdpartykeyModule,
     SentimentModule,
     ProjectModule,
+    DocumentationModule,
+    DashboardModule,
   ],
-  providers: [],
-  controllers: [],
 })
 export class AppModule {}

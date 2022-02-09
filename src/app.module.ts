@@ -11,6 +11,7 @@ import { SentimentModule } from './sentiment/sentiment.module';
 import { ProjectModule } from './project/project.module';
 import { DocumentationModule } from './documentation/documentation.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { AbtestModule } from './abtest/abtest.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     ProjectModule,
     DocumentationModule,
     DashboardModule,
+    AbtestModule,
   ],
 })
 export class AppModule {}

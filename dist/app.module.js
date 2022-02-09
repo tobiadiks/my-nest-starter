@@ -20,6 +20,7 @@ const sentiment_module_1 = require("./sentiment/sentiment.module");
 const project_module_1 = require("./project/project.module");
 const documentation_module_1 = require("./documentation/documentation.module");
 const dashboard_module_1 = require("./dashboard/dashboard.module");
+const abtest_module_1 = require("./abtest/abtest.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -36,6 +37,7 @@ AppModule = __decorate([
             project_module_1.ProjectModule,
             documentation_module_1.DocumentationModule,
             dashboard_module_1.DashboardModule,
+            abtest_module_1.AbtestModule,
         ],
     })
 ], AppModule);

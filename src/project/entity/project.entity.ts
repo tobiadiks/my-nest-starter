@@ -15,10 +15,10 @@ export class Project {
   @Column({ nullable: false })
   name: string;
 
-  @Column()
+  @Column({ nullable: true })
   description: string;
 
-  @Column()
+  @Column({ nullable: true })
   color: string;
 
   @Column({ nullable: false })
@@ -30,7 +30,7 @@ export class Project {
   @ManyToOne(() => Company, (company: Company) => company.project)
   company: Company;
 
-  @Column()
+  @Column({ nullable: true })
   date_created: string;
 
   @BeforeInsert()

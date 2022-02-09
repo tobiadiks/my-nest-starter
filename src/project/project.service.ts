@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ABTest } from 'src/abtest/entity/abtest.entity';
 import { Company } from 'src/company/entity/company.entity';
 import { Repository } from 'typeorm';
 import {
@@ -16,6 +17,8 @@ export class ProjectService {
     private readonly projectRepository: Repository<Project>,
     @InjectRepository(Company)
     private readonly companyRepository: Repository<Company>,
+    @InjectRepository(ABTest)
+    private readonly abtestRepository: Repository<ABTest>,
   ) {}
 
   async CreateProject(
@@ -37,8 +40,19 @@ export class ProjectService {
       ...body,
     });
 
-    if (project) {
-      this.projectRepository.save(project);
+    //abtest saves
+    if (project.type_id == 'abtest') {
+      await this.projectRepository.save(project);
+      //creates abtest
+      const abtest: ABTest = this.abtestRepository.create({
+        for_project: project.project_id,
+      });
+
+      if (abtest) {
+        await this.abtestRepository.save(abtest);
+      } else {
+        throw new HttpException('cannot save', HttpStatus.FORBIDDEN);
+      }
       return { success: true };
     } else {
       throw new HttpException('cannot create', HttpStatus.FORBIDDEN);
@@ -71,7 +85,14 @@ export class ProjectService {
     const findProject = await this.projectRepository.findOne({
       where: { project_id: data.project_id, company: getCompany },
     });
+    //deletes abtest
+    if (findProject.type_id == 'abtest') {
+      const abtest: ABTest = this.abtestRepository.create({
+        for_project: findProject.project_id,
+      });
 
+      await this.abtestRepository.delete(abtest);
+    }
     if (!findProject) {
       throw new HttpException(
         'project does not exist',

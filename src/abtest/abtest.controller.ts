@@ -40,4 +40,10 @@ export class AbtestController {
     const result = await this.abtestService.Vote(project_id, value);
     return result;
   }
+
+  @Get('/:project_id')
+  async GetVote(@Param('project_id') project_id: string) {
+    const result = await this.abtestService.GetVote(project_id);
+    return result;
+  }
 }

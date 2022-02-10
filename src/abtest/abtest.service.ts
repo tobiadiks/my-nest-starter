@@ -91,4 +91,16 @@ export class AbtestService {
       throw new HttpException('cannot vote', HttpStatus.BAD_REQUEST);
     }
   }
+
+  async GetVote(project_id: string): Promise<any> {
+    const abtest = await this.abtestRepository.findOne({
+      where: { for_project: project_id },
+    });
+    //find abtest
+    if (abtest) {
+      return { success: true, abtest };
+    } else {
+      throw new HttpException('cannot find', HttpStatus.BAD_REQUEST);
+    }
+  }
 }

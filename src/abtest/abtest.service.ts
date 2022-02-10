@@ -62,7 +62,10 @@ export class AbtestService {
       });
 
       if (abtest) {
-        await this.abtestRepository.update(abtest, { item_a_url, item_b_url });
+        await this.abtestRepository.update(abtest, {
+          item_a_url: item_a_url,
+          item_b_url: item_b_url,
+        });
       }
 
       return abtest;

@@ -1,49 +1,55 @@
-import { Feedback } from 'src/feedback/entity/feedback.entity';
+import { hash } from 'bcrypt';
 import {
   BeforeInsert,
   BeforeUpdate,
   Column,
   Entity,
-  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-
-import { hash } from 'bcrypt';
 
 @Entity()
 export class User {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  user_id: string;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ nullable: false })
+  firstname: string;
+
+  @Column({ nullable: false })
+  lastname: string;
+
+  @Column({ nullable: false })
   email: string;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ nullable: false })
   password: string;
 
-  @Column({ nullable: false, default: 'Anonymous', type: 'varchar' })
-  first_name: string;
-
-  @Column({ nullable: false, default: 'Anonymous', type: 'varchar' })
-  last_name: string;
+  @Column({ nullable: false })
+  country: string;
 
   @Column({ nullable: true })
-  photo_url: string;
+  profile_url: string;
 
-  @Column({ default: new Date().toLocaleString(), update: false })
+  @Column({ nullable: true })
+  referred: string;
+
+  @Column({ nullable: false })
+  referral_code: string;
+
+  @Column({ default: new Date().toLocaleString() })
   date_created: string;
 
   @Column({ default: new Date().toLocaleString() })
   date_updated: string;
 
-  // @OneToMany(() => Feedback, (feedback: Feedback) => feedback.author)
-  // feedback: Feedback[];
+  
 
   @BeforeInsert() async hashPassword() {
     this.password = await hash(this.password, 10);
   }
 
-  @BeforeUpdate() updateDate() {
+  @BeforeUpdate()
+  updateDate() {
     this.date_updated = new Date().toLocaleString();
   }
 }

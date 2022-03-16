@@ -1,5 +1,5 @@
 {
-  "name": "numetrica-backend",
+  "name": "finva-backend",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -82,7 +82,7 @@
     "testEnvironment": "node"
   },
   "engines": {
-    "node": "15.14.0",
-    "npm": "7.7.6"
+    "node": "16.13.1",
+    "npm": "8.4.0"
   }
 }

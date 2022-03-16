@@ -5,12 +5,11 @@ import { UserModule } from 'src/user/user.module';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtStrategy } from './jwt.strategy';
-import { CompanyModule } from 'src/company/company.module';
+
 
 @Module({
   imports: [
     UserModule,
-    CompanyModule,
     PassportModule.register({
       defaultStrategy: 'jwt',
       property: 'user',

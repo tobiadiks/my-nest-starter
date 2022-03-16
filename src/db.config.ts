@@ -5,16 +5,16 @@ export function DbConfig(): TypeOrmModuleOptions {
     type: 'postgres',
     host:
       process.env.NODE_ENV == `production`
-        ? `ec2-184-73-25-2.compute-1.amazonaws.com`
+        ? process.env.NODE_HOST
         : 'localhost',
     port: 5432,
     username:
-      process.env.NODE_ENV == `production` ? `vjhxvpfqrswzkt` : 'postgres',
+      process.env.NODE_ENV == `production` ? process.env.NODE_USERNAME : 'postgres',
     password:
       process.env.NODE_ENV == `production`
-        ? `e1f0e2d6bdd0ed82629d7bd96994aa9baf5d308ad26e161447d2fb7bae0bdeb6`
+        ? process.env.PASSWORD
         : '1234',
-    database: process.env.NODE_ENV == `production` ? `df0qjgqppjpga0` : 'fpp',
+    database: process.env.NODE_ENV == `production` ? process.env.NODE_DATABASE : 'fpp',
     synchronize: true,
     autoLoadEntities: true,
     ssl:
